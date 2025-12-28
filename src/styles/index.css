@@ -1,0 +1,191 @@
+@import url('https://fonts.cdnfonts.com/css/motiva-sans');
+
+:root {
+  /* Monochromatic Deep Blue and White Color Scheme */
+  --color-deep-blue: #0A1128;
+  --color-lighter-blue: #1E3A8A;
+  --color-white: #FFFFFF;
+  --color-off-white: #F0F4F8;
+  --color-text-dark: #333333;
+  /* For text on light backgrounds */
+  --color-text-light: #FFFFFF;
+  /* For text on dark backgrounds */
+
+  font-family: 'Motiva Sans', system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  /* Keep for system preference, but override with our scheme */
+  color: var(--color-text-light);
+  /* Default text color on dark background */
+  background-color: var(--color-deep-blue);
+  /* Default background */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: var(--color-lighter-blue);
+  text-decoration: none;
+  /* Remove underline by default for cleaner look */
+}
+
+a:hover {
+  color: var(--color-white);
+  text-decoration: underline;
+  /* Add underline on hover for accessibility */
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--color-deep-blue);
+  background-image: url('../assets/tiled_bg_english.jpg');
+  background-size: auto;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  color: var(--color-text-light);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  color: var(--color-text-light);
+}
+
+button {
+  border: 1px solid var(--color-lighter-blue);
+  padding: 0.8em 1.8em;
+  /* Slightly more padding for pill shape */
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--color-lighter-blue);
+  color: var(--color-white);
+  cursor: pointer;
+  transition: background-color 0.25s, border-color 0.25s, color 0.25s;
+}
+
+button:hover {
+  background-color: var(--color-deep-blue);
+  border-color: var(--color-white);
+  color: var(--color-white);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto var(--color-lighter-blue);
+}
+
+/* Light mode adjustments */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: var(--color-text-dark);
+    background-color: var(--color-off-white);
+  }
+
+  body {
+    background-color: var(--color-off-white);
+    color: var(--color-text-dark);
+  }
+
+  h1 {
+    color: var(--color-text-dark);
+  }
+
+  a {
+    color: var(--color-lighter-blue);
+  }
+
+  a:hover {
+    color: var(--color-deep-blue);
+  }
+
+  button {
+    background-color: var(--color-lighter-blue);
+    border-color: var(--color-lighter-blue);
+    color: var(--color-white);
+  }
+
+  button:hover {
+    background-color: var(--color-deep-blue);
+    border-color: var(--color-deep-blue);
+    color: var(--color-white);
+  }
+}
+
+.feed-container {
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.feed-list {
+  display: grid;
+  /* Change to grid for 3 columns */
+  grid-template-columns: repeat(3, 1fr);
+  /* 3 equal columns */
+  gap: 1rem;
+}
+
+.feed-card {
+
+  color: var(--color-off-white);
+  /* Dark text on white card */
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s;
+  border: none;
+  /* Remove default border */
+}
+
+.profile-card {
+  max-width: 80%;
+  margin: auto;
+  overflow: hidden;
+  color: var(--color-off-white);
+  text-align: left;
+  /* cursor: pointer;  Removed pointer as it might not be needed for the whole profile container, but kept logic similar for now or adjust */
+  border: none;
+  /* Duplicate basic styles, remove hover effects if not needed or keep them separate */
+}
+
+.feed-card:hover {
+  transform: translateY(-5px);
+  /* Lift effect on hover */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  /* Enhanced shadow on hover */
+}
+
+.feed-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+
+}
+
+.hidden-image-placeholder {
+  width: 100%;
+  height: 200px;
+  background-color: var(--color-off-white);
+  /* Light background for placeholder */
+  color: var(--color-text-dark);
+  /* Dark text on placeholder */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: calc(var(--border-radius-bubbly) - 10px);
+  font-style: italic;
+  cursor: pointer;
+  border: 2px dashed var(--color-lighter-blue);
+  /* Dashed border for visual cue */
+  text-align: center;
+
+}

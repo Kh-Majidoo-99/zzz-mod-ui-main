@@ -1,0 +1,174 @@
+#root {
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.search-bar-container {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: 90%;
+  max-width: 400px;
+  background-color: var(--color-deep-blue);
+  /* To blend with body */
+  padding: 5px;
+}
+
+.main-container {
+  padding-top: 70px;
+  display: flex;
+}
+
+.feed-container {}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em var(--color-lighter-blue));
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+  /* Keep react logo color distinct for now */
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+  /* Apply bubbly aesthetic to general cards */
+  background-color: var(--color-white);
+  color: var(--color-text-dark);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.read-the-docs {
+  color: var(--color-text-dark);
+  /* Adjust for light scheme */
+}
+
+.back-button {
+  margin-bottom: 1rem;
+}
+
+.profile-main-image {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  display: block;
+}
+
+.feed-text {
+  margin-top: 2rem;
+  text-align: left;
+  line-height: 1.6;
+  color: var(--color-white);
+  /* Ensure text color is appropriate */
+}
+
+.feed-text img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Removed redundant .feed-list, .feed-card, .feed-image from here. They are now in index.css */
+
+
+.carousel-section {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.carousel-container {
+  position: relative;
+}
+
+.carousel-main-image-container {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.carousel-main-image {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  display: block;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--color-lighter-blue);
+  /* Use lighter blue for buttons */
+  color: var(--color-white);
+  border: none;
+  padding: 0.8rem 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.25s, color 0.25s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-button:hover {
+  background-color: var(--color-deep-blue);
+}
+
+.carousel-button.prev {
+  left: 10px;
+}
+
+.carousel-button.next {
+  right: 10px;
+}
+
+.carousel-thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.carousel-thumbnail {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.3s, opacity 0.3s;
+}
+
+/* .carousel-thumbnail.active {
+  border-color: var(--color-lighter-blue); Active thumbnail border color */
+/* } */
+
+.carousel-thumbnail:hover {
+  opacity: 0.8;
+}
+
+.loading-indicator {
+  padding: 1rem;
+  text-align: center;
+  font-style: italic;
+  color: var(--color-text-dark);
+  /* Adjust for light scheme */
+}
