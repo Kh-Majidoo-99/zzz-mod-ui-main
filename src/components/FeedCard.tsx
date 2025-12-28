@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import nsfwPlaceholder from '../assets/nsfw.jpg';
 import type { FeedItem } from '../types';
 
 interface FeedCardProps {
@@ -7,7 +8,7 @@ interface FeedCardProps {
 }
 
 const FeedCard = ({ item, onNavigate }: FeedCardProps) => { // Changed from onItemSelect
-  const [showImage, setShowImage] = useState(item._sInitialVisibility !== 'hide');
+  const [showImage, setShowImage] = useState(item._sInitialVisibility === 'hide' ? false : true);
 
   const handleCardClick = () => {
     if (!showImage && item._sInitialVisibility === 'hide') {
@@ -25,9 +26,7 @@ const FeedCard = ({ item, onNavigate }: FeedCardProps) => { // Changed from onIt
     >
       {item.imageUrl && showImage && <img src={item.imageUrl} alt={item.title} className="feed-image" />}
       {item.imageUrl && !showImage && item._sInitialVisibility === 'hide' && (
-        <div className="hidden-image-placeholder">
-          Click to reveal image
-        </div>
+        <img src={nsfwPlaceholder} alt="Hidden Content" className="feed-image" />
       )}
       <h4 style={{ margin: 0 }}>{item.title}</h4>
       {/* <p>By {item.author}</p> */}
