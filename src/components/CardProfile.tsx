@@ -29,7 +29,10 @@ const CardProfile = () => { // Remove id and goBack from props
       .then((data) => {
         const mappedData: FeedItem = {
           id: data._idRow,
-          author: data._aSubmitter?._idRow ? `https://gamebanana.com/members/${data._aSubmitter._idRow}` : 'Unknown',
+          author: data._aSubmitter?._sName || 'Unknown',
+          authorId: data._aSubmitter?._idRow,
+          authorUrl: data._aSubmitter?._idRow ? `https://gamebanana.com/members/${data._aSubmitter._idRow}` : undefined,
+          downloadUrl: data._sProfileUrl ? `${data._sProfileUrl}#FileInfo` : undefined,
           title: data._sName || 'Untitled',
           imageUrl: data._aPreviewMedia?._aImages?.[0]
             ? `${data._aPreviewMedia._aImages[0]._sBaseUrl}/${data._aPreviewMedia._aImages[0]._sFile}`

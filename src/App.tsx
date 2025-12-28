@@ -3,6 +3,7 @@ import './styles/App.css';
 import Feed from './components/Feed';
 import CardProfile from './components/CardProfile'; // Import CardProfile
 import Search from './components/Search';
+import Author from './components/Author';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Feed />} />
         <Route path="/mod/:id" element={<CardProfile />} />
+        <Route path="/author/:id" element={<Author />} />
       </Routes>
     </div>
   );

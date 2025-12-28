@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import type { FeedItem } from '../types';
 import ImageCarousel from './ImageCarousel';
 
@@ -19,7 +20,8 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ profileData }) => {
             )}
 
             <h1>{profileData.title}</h1>
-            <p><strong>Author:</strong> {profileData.author}</p>
+            <p><strong>Author:</strong> {profileData.authorId ? <Link to={`/author/${profileData.authorId}`}>{profileData.author}</Link> : profileData.author}</p>
+            {profileData.downloadUrl && <p><a href={profileData.downloadUrl} target="_blank" rel="noreferrer">Download</a></p>}
             <p><strong>ID:</strong> {profileData.id}</p>
             <p><a href={profileData.link} target="_blank" rel="noreferrer">View on GameBanana</a></p>
             {(profileData as any)._sText && (

@@ -1,10 +1,13 @@
 export interface FeedItem {
   id: number
   author: string
+  authorId?: number
+  authorUrl?: string
+  downloadUrl?: string
   title: string
   imageUrl: string
   link: string
-  text : string
+  text: string
   _sInitialVisibility?: string
 }
 

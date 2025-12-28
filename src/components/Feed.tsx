@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import type { FeedItem } from '../types';
 import FeedCard from './FeedCard'; // Import the new FeedCard component
 import { useNavigate, useLocation } from 'react-router-dom';
+import bannerImage from '../assets/banner.jpg';
 // import CharacterList from './CharacterList'; // Import the CharacterList component
 
 
@@ -43,6 +44,7 @@ const Feed = () => { // Removed onItemSelect from props
         const mappedItems: FeedItem[] = filteredRecords.map((item: any) => ({
           id: item._idRow,
           author: item._aSubmitter?._sName || 'Unknown',
+          authorId: item._aSubmitter?._idRow,
           title: item._sName || 'Untitled',
           imageUrl: item._aPreviewMedia?._aImages?.[0]
             ? `${item._aPreviewMedia._aImages[0]._sBaseUrl}/${item._aPreviewMedia._aImages[0]._sFile}`
@@ -97,6 +99,9 @@ const Feed = () => { // Removed onItemSelect from props
   return (
     <div className="main-container">
       <div className="feed-container">
+        <div className="banner-container">
+          <img src={bannerImage} alt="ZZZ Banner" className="feed-banner" />
+        </div>
         <h1>Scrollable Feed</h1>
         <div className="feed-list">
           {items.map((item) => (

@@ -130,7 +130,7 @@ button:focus-visible {
 .feed-list {
   display: grid;
   /* Change to grid for 3 columns */
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   /* 3 equal columns */
   gap: 1rem;
 }
