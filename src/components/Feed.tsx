@@ -7,7 +7,11 @@ import bannerImage from '../assets/banner.jpg';
 
 
 
-const Feed = () => { // Removed onItemSelect from props
+interface FeedProps {
+  showNsfw?: boolean; // Make it optional to compatible with Route element type if needed, though here we pass it.
+}
+
+const Feed = ({ showNsfw }: FeedProps) => { // Removed onItemSelect from props
   const navigate = useNavigate(); // Initialize useNavigate
   const location = useLocation();
   const [items, setItems] = useState<FeedItem[]>([]);
@@ -105,7 +109,7 @@ const Feed = () => { // Removed onItemSelect from props
         <h1>Scrollable Feed</h1>
         <div className="feed-list">
           {items.map((item) => (
-            <FeedCard key={item.id} item={item} onNavigate={() => navigate(`/mod/${item.id}`)} /> // Pass navigate
+            <FeedCard key={item.id} item={item} onNavigate={() => navigate(`/mod/${item.id}`)} showNsfw={showNsfw} /> // Pass navigate and showNsfw
           ))}
         </div>
         {loading && <div className="loading-indicator">Loading more...</div>}
